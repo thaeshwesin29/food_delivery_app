@@ -3,12 +3,13 @@ import { Models } from "react-native-appwrite";
 export interface MenuItem extends Models.Document {
     name: string;
     price: number;
-    image_url: string;
+    image_url: string | number;
     description: string;
     calories: number;
     protein: number;
     rating: number;
     type: string;
+    category_name?: string;
 }
 
 export interface Category extends Models.Document {
@@ -102,6 +103,7 @@ interface SignInParams {
 }
 
 interface GetMenuParams {
-    category: string;
-    query: string;
+    category?: string;
+    query?: string;
+    limit?: number;
 }
